@@ -14,6 +14,7 @@ type JsonServer struct {
 
 const DefaultPort = ":3000"
 
+// Creates new JsonServer
 func NewJsonServer(config Config) (*JsonServer, error) {
 
 	db, err := NewDB(config.FileName)
@@ -24,7 +25,7 @@ func NewJsonServer(config Config) (*JsonServer, error) {
 	app := fiber.New()
 
 	// Loop throug all data and and create handlers
-	for path, _ := range db {
+	for path := range db {
 		g := app.Group(fmt.Sprintf("/%s", path))
 
 		// Get all
