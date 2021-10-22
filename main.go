@@ -47,16 +47,13 @@ func (c DB) Create(path string, r Record) error {
 }
 
 func (c DB) Persist(fn string) error {
-	bytes, _ := json.Marshal(c)
+	bytes, _ := json.MarshalIndent(c, "", "   ")
 
 	return os.WriteFile(fn, bytes, 0644)
 }
 
 func (db DB) loadJson(fn string) error {
 	// Read file
-	// r := bufio.NewReader(f)
-	// var jsonBytes []byte
-
 	jsonBytes, err := os.ReadFile(fn)
 	if err != nil || len(jsonBytes) == 0 {
 		fmt.Println("Cannot read file: ", fn)
