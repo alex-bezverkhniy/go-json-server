@@ -6,3 +6,12 @@ GET http://localhost:3000/users/0
 
 ### Get user by ID 404
 GET http://localhost:3000/users/10
+
+### Create new user 
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "id": 10,
+  "name": "X"
+}
