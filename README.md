@@ -28,7 +28,10 @@ GET    /users
 GET    /users/1
 POST   /users
 ```
-
+- [ ] CLI usage. Use [Cobra CLI](https://cobra.dev).
+```
+go-json-server [options] <source>
+```
 - [ ] CRUD operatons
 ```
 GET    /posts
